@@ -7,7 +7,9 @@ sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
-    software-properties-common
+    software-properties-common \
+    snapd \
+    snapd-xdg-open
 
 #gnome tools
 sudo apt install -y gnome-tweaks
@@ -48,3 +50,11 @@ curl ftp://ftp.videolan.org/pub/debian/videolan-apt.asc | sudo apt-key add -
 echo "deb ftp://ftp.videolan.org/pub/debian/stable ./" | sudo tee /etc/apt/sources.list.d/libdvdcss.list
 sudo apt-get update
 sudo apt-get install -y vlc vlc-data browser-plugin-vlc ubuntu-restricted-extras
+
+#Kubectl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+sudo snap install postman
